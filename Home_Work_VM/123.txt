@@ -1,0 +1,23 @@
+input 650 0
+input 660 168
+input 661 105
+po 500
+mod 661 660 661
+endpo
+po 501
+mod 660 661 660
+endpo
+po 502
+output 661
+exit
+endpo
+po 503
+output 660
+exit
+endpo
+ifr 660 650 502
+ifr 661 650 503
+ifb 661 660 500
+ifr 661 660 500
+ifm 661 660 501
+exit
