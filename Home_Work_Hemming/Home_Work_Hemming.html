@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title> Hemming coder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 12px;
+      padding: 8px 16px;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function code(){
+        let myinp = document.getElementById('input_massange').value;
+        //To do hemming code
+        myinp = myinp.split('');
+        cntb1 = ((Number(myinp[0]) + Number(myinp[2]) + Number(myinp[3]))%2);
+        cntb2 = ((Number(myinp[0]) + Number(myinp[1]) + Number(myinp[3]))%2);
+        cntb3 = ((Number(myinp[1]) + Number(myinp[2]) + Number(myinp[3]))%2);
+        document.getElementById('output_massange').value = myinp.join('') + cntb1 + cntb2 + cntb3;
+    }
+    function decode(){
+        let errors = "";
+        let is_errors_place1 = "";
+        let is_errors_place2 = "";
+        let is_errors_place3 = "";
+        let error_place_end = "";
+        let decoderr = document.getElementById('output_massange').value;
+
+
+        if (((Number(decoderr[0]) + Number(decoderr[2]) + Number(decoderr[3]) +  Number(decoderr[4]))%2 )!=0){
+            errors += 1;
+            is_errors_place1 = 1;
+        }
+        if (((Number(decoderr[0]) + Number(decoderr[1]) + Number(decoderr[3]) + Number(decoderr[5]))%2 )!=0){
+            errors += 1;
+            is_errors_place2 = 1;
+        }
+        if (((Number(decoderr[1]) + Number(decoderr[2]) + Number(decoderr[3]) + Number(decoderr[6]))%2 )!=0 ){
+            errors += 1;
+            is_errors_place3 = 1;
+        }
+
+
+        if(is_errors_place1 = 1, is_errors_place2 = 1){
+          error_place_end = 1
+          if (Number(decoderr[0]) == 1){
+            decoderr[0] = 0
+          }
+          else{
+            decoderr[0] = 1
+          }
+        }
+          if(is_errors_place1 = 1, is_errors_place3 = 1){
+          error_place_end = 3
+          if (Number(decoderr[2]) == 1){
+            decoderr[2] = 0
+          }
+          else{
+            decoderr[2] = 1
+          }
+        }
+
+          if(is_errors_place2 = 1, is_errors_place3 = 1){
+          error_place_end = 2
+          if (Number(decoderr[1]) == 1){
+            decoderr[1] = 0
+          }
+          else{
+            decoderr[1] = 1
+          }
+        }
+        if(is_errors_place1 = 1, is_errors_place2 = 1, is_errors_place3 = 1){
+          error_place_end = 4
+          if (Number(decoderr[3]) == 1){
+            decoderr[3] = 0
+          }
+          else{
+            decoderr[3] = 1
+          }
+        }
+
+        document.getElementById('result_massange').value = decoderr[0]+decoderr[1]+decoderr[2]+decoderr[3];
+        if (errors>=1){
+          document.getElementById('errors').innerHTML = "Аn error was found " + errors + "under the number" + error_place_end;
+        }
+      }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Heming coder from Regina</h1>  
+    <p><input type="text" id = 'input_massange'/> input massange, 4 bits</p>
+    <p><input onclick ='code()' type="button" value="code" /> </p>
+    <p><input type="text" id = 'output_massange' /> coded massange</p>
+    <p><input onclick ='decode()' type="button" value="check" /> </p>
+    <p><input type="text" id = 'result_massange'/> original massange</p>
+    <p id ='errors'></p>
+    
+</body>
+</html>
