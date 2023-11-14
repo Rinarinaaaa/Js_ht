@@ -1,0 +1,14 @@
+{
+  "name": "home_work_shannon",
+  "version": "0.0.0",
+  "description": "Home_Work_Shannon",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}
