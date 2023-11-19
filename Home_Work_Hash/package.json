@@ -1,0 +1,14 @@
+{
+  "name": "bh-and-hesh",
+  "version": "0.0.0",
+  "description": "bh and hesh",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0"
+  },
+  "eslintConfig": {
+  }
+}

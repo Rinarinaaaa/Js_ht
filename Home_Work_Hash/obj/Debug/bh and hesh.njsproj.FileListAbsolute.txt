@@ -1,0 +1,3 @@
+C:\Users\svgra\OneDrive\Рабочий стол\с++\bh and hesh\obj\Debug\bh and hesh.njsproj.AssemblyReference.cache
+C:\Users\svgra\OneDrive\Рабочий стол\с++\bh and hesh\obj\Debug\bh and hesh.njsproj.CoreCompileInputs.cache
+C:\Users\svgra\OneDrive\Рабочий стол\с++\bh and hesh\bin\Microsoft.NodejsTools.WebRole.dll
